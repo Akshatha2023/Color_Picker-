@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: aqua;
+            height: 100vh;
+            text-align: center;
+        }
+        h1{
+            text-align: center;
+            font-size:60px;
+            font-family: monospace;
+        }
+        p{
+            font-size:30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Color picker</h1>
+    <button id="btn">New Color</button>
+    <p>color Code is <span id="code-display"></span></p>
+    <script>
+        let code_display = document.getElementById("code-display")
+        let bodyElement = document.querySelector("body")
+        let btnElement = document.getElementById("btn")
+        btnElement.addEventListener("click",()=>{
+            let color="#"
+            let colorchars= "0123456789abcdef"
+            for(let i=0;i<6;i++){
+                let randomNumber = Math.trunc(Math.random()*16)
+                color += colorchars[randomNumber]
+                bodyElement.style.backgroundColor = color
+                code_display.innerText = color
+            }
+        })
+        // let color="#"
+        // let colorchars = "0123456789abcdef"
+        // for(let i=0;i<6;i++){
+        //     console.log(colorchars[i]);
+        //     console.log(Math.random()*1000000);
+        // }
+    </script>
+</body>
+</html>
